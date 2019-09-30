@@ -3,32 +3,31 @@
   height: 100vh
 
 .header
-  background-color: #353436
+  background-color: $black-header
   padding: 23px 20px
   position: relative
 
   &__top
     position: absolute
-    top: 0
+    top: 5px
     right: 20px
 
   &__logo
     display: inline-block
     width: 283px
     height: 83px
-    background-image: url(../images/logo.png)
+    background: url(../images/logo.png) no-repeat
 
 .trigger
   display: inline-flex
   flex-flow: row nowrap
   align-items: baseline
+  &:hover
+    opacity: .8
 
   &__text
-    color: #ffffff
-    font-family: "Open Sans"
+    @include text-default
     font-size: 14px
-    font-weight: 400
-    line-height: 24px
     text-transform: uppercase
     margin-right: 10px
 
@@ -39,18 +38,43 @@
   bottom: 23px
   right: 20px
 
+  &__item
+    position: relative
+    &:hover .nav__sub-menu
+      opacity: 1
+      visibility: visible
+      transition-delay: 0s
+
   &__item:not(:last-child)
     margin-right: 27px
 
   &__link
-    width: 74px
-    height: 13px
-    color: #ffffff
-    font-family: "Open Sans"
+    @include text-default
     font-size: 18px
-    font-weight: 400
-    line-height: 24px
     text-transform: uppercase
+    &:hover
+      color: $link-hover
 
   &__sub-menu
-    display: none
+    opacity: 0
+    visibility: hidden
+    position: absolute
+    list-style: none
+    padding: 23px 8px 8px
+    margin: 0 0 0 -16px
+    z-index: 2
+    background-color: $black-header
+    transition: opacity 0.2s, visibility 0s linear 0.2s
+
+  &__sub-item
+    padding: 8px
+
+  &__sub-item:not(:last-child)
+    border-bottom: 1px solid $white
+
+  &__sub-link
+    @include text-default
+    font-size: 16px
+    text-transform: uppercase
+    &:hover
+      color: $link-hover

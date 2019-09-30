@@ -1,0 +1,12 @@
+include pug/project-settings.pug
+include pug/mixins/mixins.pug
+
+doctype html
+html
+  head(lang="en")
+    include pug/metatags.pug
+    link(rel='icon', type="image/x-icon", href='favicon.ico')
+    +title('')
+    include pug/styles.pug
+  body
+    include pug/includes/greeting

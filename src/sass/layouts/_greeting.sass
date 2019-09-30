@@ -1,0 +1,56 @@
+.greeting
+  width: 100vw
+  height: 100vh
+
+.header
+  background-color: #353436
+  padding: 23px 20px
+  position: relative
+
+  &__top
+    position: absolute
+    top: 0
+    right: 20px
+
+  &__logo
+    display: inline-block
+    width: 283px
+    height: 83px
+    background-image: url(../images/logo.png)
+
+.trigger
+  display: inline-flex
+  flex-flow: row nowrap
+  align-items: baseline
+
+  &__text
+    color: #ffffff
+    font-family: "Open Sans"
+    font-size: 14px
+    font-weight: 400
+    line-height: 24px
+    text-transform: uppercase
+    margin-right: 10px
+
+.nav
+  display: inline-flex
+  flex-flow: row nowrap
+  position: absolute
+  bottom: 23px
+  right: 20px
+
+  &__item:not(:last-child)
+    margin-right: 27px
+
+  &__link
+    width: 74px
+    height: 13px
+    color: #ffffff
+    font-family: "Open Sans"
+    font-size: 18px
+    font-weight: 400
+    line-height: 24px
+    text-transform: uppercase
+
+  &__sub-menu
+    display: none

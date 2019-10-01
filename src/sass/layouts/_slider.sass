@@ -20,13 +20,13 @@
     height: 100%
     display: inline-block
     position: relative
-    &:nth-child(1)
+    &_previous
       background-color: darkgrey
-    &:nth-child(2)
-      background: url(../images/slide-copy.jpg) no-repeat
+    &_main
+      background: url(../images/slide.jpg) no-repeat
       background-size: cover
       background-position: center
-    &:nth-child(3)
+    &_next
       background-color: dimgrey
 
   &__box
@@ -80,6 +80,10 @@
   position: absolute
   bottom: 28px
   transform: translateY(100%)
+  transition: all .5s ease-out
+  &_visible
+    bottom: 0
+    transform: translateY(0%)
 
   &__top
     display: flex
@@ -91,7 +95,8 @@
     height: 28px
     background-color: $white
     text-align: center
-    border: 1px solid gainsboro
+    border: none
+    border-bottom: 1px solid gainsboro
     &:hover
       cursor: pointer
       background-color: $link-hover
@@ -101,7 +106,10 @@
   &__icon-arrow
     display: inline-block
     vertical-align: middle
-    transform: rotate(180deg)
+    transform: scaleY(-1)
+    transition: all .5s ease-out
+    &_down
+      transform: scaleY(1)
 
   &__bottom
     display: flex
@@ -115,28 +123,24 @@
     flex-direction: column
     justify-content: space-between
     position: relative
-
-  &__item_bg-white
-    background-color: $white
-
-  &__item_bg-black
-    background-color: $black
+    &_bg-white
+      background-color: $white
+    &_bg-black
+      background-color: $black
 
   &__heading
     @include heading-default
     font-size: 28px
     margin-bottom: 14px
-
-  &__heading_white
-    color: $white
+    &_white
+      color: $white
 
   &__description
     @include text-default
     font-size: 16px
     color: $black
-
-  &__description_white
-    color: $white
+    &_white
+      color: $white
 
   &__link
     @include text-default
@@ -146,6 +150,5 @@
     right: 20px
     &:hover
       text-decoration: underline
-
-  &__link_black
-    color: $black
+    &_black
+      color: $black

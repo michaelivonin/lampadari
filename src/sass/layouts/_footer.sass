@@ -1,0 +1,44 @@
+.footer
+  background-color: $black-header
+
+  &__content
+    padding: 38px 105px 8px
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-around
+
+  &__item
+    max-width: 193px
+    flex: 0 1 100%
+    display: flex
+    flex-direction: column
+
+  &__heading
+    @include heading-default
+    color: $footer-white
+    font-size: 14px
+    text-transform: uppercase
+    margin-bottom: 26px
+    flex: 1 1 auto
+
+  &__description
+    @include text-default
+    font-size: 12px
+    font-weight: 300
+    margin-bottom: 35px
+
+.form
+
+  &__wrapper
+    display: flex
+    flex-flow: column nowrap
+
+  &__input
+    padding: 5px 6px
+    background-color: $white
+    margin-bottom: 10px !important
+    &::placeholder
+      @include text-default
+      color: $input-grey
+      font-size: 14px
+      font-weight: 300

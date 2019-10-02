@@ -2,42 +2,7 @@
 @import "../../node_modules/normalize.css/normalize"
 
 // Fonts
-//@font-face
-  src: url('../fonts/OpenSans-Light.ttf') format('truetype')
-  font-family: 'Open Sans', sans-serif
-  font-style: normal
-  font-weight: 300
-
-//@font-face
-  src: url('../fonts/OpenSans-Regular.ttf') format('truetype')
-  font-family: 'Open Sans', sans-serif
-  font-style: normal
-  font-weight: 400
-
-//@font-face
-  src: url('../fonts/OpenSans-SemiBold.ttf') format('truetype')
-  font-family: 'Open Sans', sans-serif
-  font-style: normal
-  font-weight: 600
-
-//@font-face
-  src: url('../fonts/OpenSans-Bold.ttf') format('truetype')
-  font-family: 'Open Sans', sans-serif
-  font-style: normal
-  font-weight: 700
-
-//@font-face
-  src: url('../fonts/PlayfairDisplay-Bold.ttf') format('truetype')
-  font-family: 'Playfair Display', serif
-  font-style: normal
-  font-weight: 700
-
-//@font-face
-  src: url('../fonts/PlayfairDisplay-BoldItalic.ttf') format('truetype')
-  font-family: 'Playfair Display', serif
-  font-style: italic
-  font-weight: 700
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap')
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:700,700i&display=swap')
 
 // Colors
@@ -46,6 +11,8 @@ $black: #000000
 $heading-black: #020202
 $white: #ffffff
 $link-hover: #e2d1a6
+$footer-white: #fefefe
+$input-grey: #8c8c8c
 
 // Helpers
 @import 'helpers/mixins/text-default'
@@ -59,10 +26,10 @@ $link-hover: #e2d1a6
 // Layouts
 @import "layouts/header"
 @import "layouts/slider"
+@import "layouts/footer"
 
 a
   text-decoration: none
-
 
 .greeting
   height: 100vh

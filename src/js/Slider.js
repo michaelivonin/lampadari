@@ -36,7 +36,7 @@ function Slider(element, period) {
     list.prepend(slides[slides.length - 1].cloneNode(true));
   })();
 
-  function rebuildEdge() {
+  /*function rebuildEdge() {
     const slidesRebuilt = list.querySelectorAll(".slider__item");
     const position = parseInt(getComputedStyle(list).marginLeft);
 
@@ -69,7 +69,7 @@ function Slider(element, period) {
       }
 
     }
-  }
+  }*/
 
   function animate({duration = 250, timing, draw}) {
     const start = performance.now();
@@ -86,7 +86,7 @@ function Slider(element, period) {
         requestAnimationFrame(animate);
       } else {
         isDisabled = false;
-        rebuildEdge();
+        //rebuildEdge();
       }
     });
   }

@@ -2,7 +2,7 @@
   background-color: $black-header
 
   &__content
-    padding: 38px 105px 8px
+    padding: 38px 105px 4px
     display: flex
     flex-flow: row wrap
     justify-content: space-around
@@ -26,6 +26,57 @@
     font-size: 12px
     font-weight: 300
     margin-bottom: 35px
+    line-height: 17px
+
+  &__bottom
+    padding: 19px 20px
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-between
+
+.info
+  list-style: none
+  margin: 0
+  display: flex
+  flex-flow: row nowrap
+  //justify-content: space-between
+
+  &__item
+    @include text-default
+    font-size: 12px
+    &:not(:last-child)
+      margin-right: 16px
+
+  &__link
+    @include text-default
+    font-size: 12px
+    &:hover
+      opacity: 0.8
+
+.socials
+  list-style: none
+  margin: 0
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+
+  &__item
+
+  &__link
+    display: inline-block
+    color: $white
+
+.languages
+  list-style: none
+  margin: 0
+  display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+
+  &__item
+    @include text-default
+    font-size: 14px
+    text-transform: uppercase
 
 .form
 
@@ -34,11 +85,46 @@
     flex-flow: column nowrap
 
   &__input
-    padding: 5px 6px
+    padding: 7px 6px
     background-color: $white
     margin-bottom: 10px !important
+    border: none
+    outline: none
     &::placeholder
       @include text-default
       color: $input-grey
       font-size: 14px
       font-weight: 300
+
+  &__label
+    @include text-default
+    color: $checkbox-grey
+    font-size: 10px
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    margin-bottom: 10px
+    cursor: pointer
+    &:before
+      content: " "
+      color: $black
+      display: flex
+      justify-content: center
+      align-items: center
+      margin: 0 8px 0 1px
+      width: 8px
+      height: 8px
+      background: $white
+
+  &__checkbox
+    display: none
+    &:checked + .form__label:before
+      content: "x"
+
+  &__button
+    @include text-default
+    height: 32px
+    background-color: $black
+    font-size: 18px
+    text-transform: uppercase
+    border: none

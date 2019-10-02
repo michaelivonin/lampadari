@@ -15,9 +15,6 @@
     background: url(../images/logo.png) no-repeat
 
 .trigger
-  display: inline-flex
-  flex-flow: row nowrap
-  align-items: baseline
   &:hover
     opacity: .8
 
@@ -26,6 +23,13 @@
     font-size: 14px
     text-transform: uppercase
     margin-right: 10px
+
+  &__icon-padlock
+    position: relative
+    top: -1px
+    &:before
+      color: $white
+      font-size: 12px
 
 .nav
   display: inline-flex

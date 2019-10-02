@@ -28,7 +28,9 @@ footer.footer
           input(type="text" placeholder="Nome e Cognome" required).form__input
           input(type="email" placeholder="Email" required).form__input
           input(type="checkbox" id="checkbox-first").form__checkbox
-          label(for="checkbox-first").form__label Acconsento al trattamento dei dati
+          label(for="checkbox-first").form__label
+            | Acconsento al trattamento dei dati
+          //- /.form__label
           input(type="submit" value="Iscriviti").form__button
         //- /.form__wrapper
       //- /.form
@@ -47,19 +49,28 @@ footer.footer
     //- /.info
     ul.socials
       li.socials__item
-        .icon.icon-facebook
+        a(href="https://www.facebook.com/" target="_blank").socials__link
+          i.fab.fa-facebook-square
+        //- /.socials__link
       //- /.socials__item
       li.socials__item
-        .icon.icon-instagram
+        a(href="https://www.instagram.com/" target="_blank").socials__link
+          i.fab.fa-instagram
+        //- /.socials__link
       //- /.socials__item
       li.socials__item
-        .icon.icon-pinterest
+        a(href="https://www.pinterest.com/" target="_blank").socials__link
+          i.fab.fa-pinterest-p
+        //- /.socials__link
       //- /.socials__item
     //-/.socials
     ul.languages
       li.languages__item Ita
+      li.languages__item |
       li.languages__item Eng
+      li.languages__item |
       li.languages__item Deu
+      li.languages__item |
       li.languages__item Рус
     //- /.languages
   //- /.footer__bottom

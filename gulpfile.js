@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const gulp = require('gulp'),
   pug = require('gulp-pug'),
   prefixer = require('gulp-autoprefixer'),
@@ -12,9 +12,10 @@ const gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   rigger = require("gulp-rigger"),
   notify = require("gulp-notify"),
+  babel = require("gulp-babel"),
   browserSync = require('browser-sync').create();
 
-let path = {
+const path = {
   build: {
     html: 'build/',
     css: 'build/css/',
@@ -28,7 +29,7 @@ let path = {
     img: 'src/images/**/*.*',
     pngSprite: 'src/sprite/png/',
     fonts: 'src/fonts/**/*.*',
-    mainJs: 'src/js/index.js'
+    js: 'src/js/index.js'
   },
   watch: {
     pug: 'src/**/*.pug',
@@ -36,7 +37,7 @@ let path = {
     img: 'src/images/**/*.*',
     pngSprite: 'src/sprite/png/*.png',
     fonts: 'src/fonts/**/*.*',
-    mainJs: 'src/js/**/index.js'
+    js: 'src/js/*.js'
   }
 };
 
@@ -101,7 +102,7 @@ gulp.task('fonts:build', (done) => {
 
 // PNG Sprites
 gulp.task('png-sprite', (done) => {
-  let spriteData =
+  const spriteData =
     gulp.src(path.src.pngSprite + '*.png')
       .pipe(spritesmith({
         retinaSrcFilter: path.src.pngSprite + '*@2x.png',
@@ -120,10 +121,13 @@ gulp.task('png-sprite', (done) => {
   done();
 });
 
-gulp.task('mainJs:build', (done) => {
-  gulp.src(path.src.mainJs)
+gulp.task('js:build', (done) => {
+  gulp.src(path.src.js)
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(rigger())
+    .pipe(sourcemaps.init())
+    .pipe(babel())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.build.js))
     .pipe(browserSync.stream());
   done();
@@ -135,7 +139,7 @@ gulp.task('build', gulp.series(
   'fonts:build',
   'image:build',
   'png-sprite',
-  'mainJs:build'
+  'js:build'
 ));
 
 gulp.task('watch', (done) => {
@@ -144,7 +148,7 @@ gulp.task('watch', (done) => {
   gulp.watch(path.watch.img, gulp.series('image:build'));
   gulp.watch(path.watch.pngSprite, gulp.series('png-sprite'));
   gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
-  gulp.watch(path.watch.mainJs, gulp.series('mainJs:build'));
+  gulp.watch(path.watch.js, gulp.series('js:build'));
   done();
 });
 

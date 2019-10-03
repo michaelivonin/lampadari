@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Slider */
   //= Slider.js
-  let carousel = new Slider(".slider");
+  const carousel = new Slider(".slider");
   carousel.duration = 500;
 
   /* Bottom box */

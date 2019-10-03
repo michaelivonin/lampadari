@@ -23,16 +23,18 @@ footer.footer
     //- /.footer__item
     .footer__item
       h5.footer__heading Newsletter
-      form.form
-        .form__wrapper
+      form(id="newsletter").form
+        .form__inner
           input(type="text" placeholder="Nome e Cognome" required).form__input
           input(type="email" placeholder="Email" required).form__input
           input(type="checkbox" id="checkbox-first").form__checkbox
           label(for="checkbox-first").form__label
             | Acconsento al trattamento dei dati
           //- /.form__label
-          input(type="submit" value="Iscriviti").form__button
-        //- /.form__wrapper
+          button(type="submit").form__button
+            span.form__button-text Iscriviti
+          //- /.form__button
+        //- /.form__inner
       //- /.form
     //- /.footer__item
   //- /.footer__content
@@ -65,13 +67,21 @@ footer.footer
       //- /.socials__item
     //-/.socials
     ul.languages
-      li.languages__item Ita
-      li.languages__item |
-      li.languages__item Eng
-      li.languages__item |
-      li.languages__item Deu
-      li.languages__item |
-      li.languages__item Рус
+      li.languages__item
+        a(href="#").languages__link Ita
+      //- /.languages__item
+      //li.languages__item |
+      li.languages__item
+        a(href="#").languages__link Eng
+      //- /.languages__item
+      //li.languages__item |
+      li.languages__item
+        a(href="#").languages__link Deu
+      //- /.languages__item
+      //li.languages__item |
+      li.languages__item
+        a(href="#").languages__link Рус
+      //- /.languages__item
     //- /.languages
   //- /.footer__bottom
 //- /.footer

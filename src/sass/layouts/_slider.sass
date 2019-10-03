@@ -103,18 +103,21 @@
     &:hover
       cursor: pointer
       background-color: $link-hover
+    &:active .bottom-box__icon-arrow, &:focus .bottom-box__icon-arrow
+      position: relative
+      top: 0
+      left: 0
     &:focus
       outline: none
 
   &__icon-arrow
-    display: inline-block
-    vertical-align: middle
-    transform: scaleY(-1)
     transition: all .5s ease-out
+    &:before
+      font-size: 28px
     &_down
-      transform: scaleY(1)
+      transform: scaleY(-1)
 
-  &__wrapper
+  &__inner
     display: flex
     flex-flow: row wrap
 

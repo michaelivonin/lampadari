@@ -33,9 +33,11 @@
     display: flex
     flex-flow: row wrap
     justify-content: space-between
+    align-items: baseline
 
 .info
   list-style: none
+  padding: 0
   margin: 0
   display: flex
   flex-flow: row nowrap
@@ -51,23 +53,29 @@
     @include text-default
     font-size: 12px
     &:hover
-      opacity: 0.8
+      color: $link-hover
 
 .socials
   list-style: none
+  padding: 0
   margin: 0
   display: flex
   flex-flow: row nowrap
   justify-content: space-between
 
   &__item
+    &:not(:last-child)
+      margin-right: 10px
 
   &__link
     display: inline-block
     color: $white
+    &:hover
+      color: $link-hover
 
 .languages
   list-style: none
+  padding: 0
   margin: 0
   display: flex
   flex-flow: row nowrap
@@ -75,26 +83,48 @@
 
   &__item
     @include text-default
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    &:not(:last-child)
+      &:after
+        content: "|"
+        text-indent: -999999px
+        display: block
+        float: right
+        width: 1px
+        height: 12px
+        background: $white
+        margin: 0 10px
+
+  &__link
+    @include text-default
     font-size: 14px
     text-transform: uppercase
+    &:hover
+      color: $link-hover
 
 .form
 
-  &__wrapper
+  &__inner
     display: flex
     flex-flow: column nowrap
 
   &__input
-    padding: 7px 6px
+    height: 32px
+    padding: 6px 6px
     background-color: $white
     margin-bottom: 10px !important
     border: none
     outline: none
+    box-sizing: border-box
     &::placeholder
       @include text-default
       color: $input-grey
       font-size: 14px
       font-weight: 300
+    &:focus
+      border: 3px inset $link-hover
 
   &__label
     @include text-default
@@ -122,9 +152,18 @@
       content: "x"
 
   &__button
-    @include text-default
     height: 32px
     background-color: $black
+    border: none
+    &:hover
+      cursor: pointer
+      background-color: $input-grey
+    &:active .form__button-text, &:focus .form__button-text
+      position: relative
+      top: 0
+      left: 0
+
+  &__button-text
+    @include text-default
     font-size: 18px
     text-transform: uppercase
-    border: none

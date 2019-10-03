@@ -32,12 +32,12 @@
     color: #ffffff
     font-size: 24px
     text-transform: uppercase
-    margin-bottom: 24px
 
   &__head
     @include heading-default
     color: #ffffff
     font-size: 24px
+    margin-bottom: 24px
 
   &__close
     position: absolute
@@ -85,12 +85,16 @@
 
   &__input
     height: 32px
-    padding: 6px 6px
+    padding: 6px
     background-color: $white
     margin-bottom: 10px !important
     border: none
     outline: none
     box-sizing: border-box
+    @include text-default
+    color: $black-header
+    font-size: 14px
+    font-weight: 300
     &::placeholder
       @include text-default
       color: $input-grey
@@ -98,6 +102,7 @@
       font-weight: 300
     &:focus
       border: 3px inset $link-hover
+      padding: 6px 3px
 
   &__label
     @include text-default

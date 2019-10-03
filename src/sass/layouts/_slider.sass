@@ -38,8 +38,11 @@
     transform: translateY(-50%)
     background-color: $white
     opacity: 0.85
-    width: calc(516px - (2 * 27px))
+    max-width: calc(516px - (2 * 27px))
     padding: 18px 27px
+    @include text-default
+    color: $black
+    font-size: 18px
 
   &__heading
     @include heading-default
@@ -48,11 +51,6 @@
     font-size: 30px
     font-style: italic
     text-transform: uppercase
-
-  &__description
-    @include text-default
-    color: $black
-    font-size: 18px
 
   &__dots
     margin: 0
@@ -130,6 +128,9 @@
     display: flex
     flex-direction: column
     position: relative
+    @include text-default
+    font-size: 16px
+    color: $black
     &_bg-white
       background-color: $white
     &_bg-black
@@ -144,14 +145,11 @@
       color: $white
 
   &__description
-    @include text-default
-    font-size: 16px
-    color: $black
     &_white
       color: $white
 
   &__link
-    @include text-default
+    color: $white
     font-size: 18px
     position: absolute
     bottom: 8px

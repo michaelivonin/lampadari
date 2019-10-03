@@ -3,12 +3,13 @@
   position: fixed
   top: 0
   left: 0
-  width: 100%
+  width: calc(100% - 17px)
   height: 100%
   flex-flow: row nowrap
   justify-content: center
   align-items: center
   display: none
+  padding-right: 17px
   &:hover
     cursor: pointer
   &_open
@@ -27,12 +28,16 @@
     justify-content: center
     align-items: baseline
     position: relative
+    @include heading-default
+    color: #ffffff
+    font-size: 24px
+    text-transform: uppercase
+    margin-bottom: 24px
 
   &__head
     @include heading-default
     color: #ffffff
     font-size: 24px
-    text-transform: uppercase
 
   &__close
     position: absolute
@@ -60,8 +65,10 @@
     justify-content: space-around
 
   &__item
-    max-width: 184px
-    margin-top: 24px
+    flex: 0 1 184px
+    @include text-default
+    color: $checkbox-grey
+    font-size: 10px
 
   &__heading
     @include heading-default
@@ -69,11 +76,6 @@
     font-size: 18px
     text-transform: uppercase
     margin-bottom: 16px
-
-  &__description
-    @include text-default
-    color: $checkbox-grey
-    font-size: 10px
 
 .form
 
@@ -127,6 +129,9 @@
     background-color: $black
     border: none
     margin-bottom: 10px
+    @include text-default
+    font-size: 18px
+    text-transform: uppercase
     &:hover
       cursor: pointer
       background-color: $input-grey
@@ -134,8 +139,3 @@
       position: relative
       top: 0
       left: 0
-
-  &__button-text
-    @include text-default
-    font-size: 18px
-    text-transform: uppercase

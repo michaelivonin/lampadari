@@ -7,7 +7,7 @@
     position: relative
 
   &__list
-    margin: 0 0 0 -100vw
+    margin: 0
     padding: 0
     list-style: none
     width: 9999px
@@ -16,10 +16,12 @@
 
   &__item
     font-size: initial
-    width: calc(100vw - 5px)
+    width: calc(100vw - 16px)
     height: 100%
     display: inline-block
     position: relative
+    &:not(:last-child)
+      margin-right: 16px
     &_previous
       background-color: darkgrey
     &_main

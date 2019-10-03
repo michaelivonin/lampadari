@@ -1,23 +1,13 @@
-function Slider(element, period) {
+function Slider(element, duration, DisplayedSlide) {
   const slider = document.querySelector(element),
     list = slider.querySelector(".slider__list"),
-    position = -100,
-    dots = slider.querySelector(".slider__dots"),
-    self = this;
+    slideWidth = -100,
+    dots = slider.querySelector(".slider__dots");
 
   let selectedDot,
     isDisabled = false;
 
-  self._duration = period;
-
-  Object.defineProperty(self, "duration", {
-    get() {
-      return self._duration;
-    },
-    set(value) {
-      self._duration = value;
-    }
-  });
+  list.style.marginLeft = `${ (DisplayedSlide - 1) * slideWidth }vw`;
 
   function highlight(item) {
     if (selectedDot) {
@@ -28,7 +18,7 @@ function Slider(element, period) {
     selectedDot.classList.toggle("slider__dot_active");
   }
 
-  highlight(dots.children[1]);
+  highlight(dots.children[DisplayedSlide - 1]);
 
   function animate({duration = 250, timing, draw}) {
     const start = performance.now();
@@ -51,24 +41,24 @@ function Slider(element, period) {
 
   function moveRight(multiplier, previous) {
     animate({
-      duration: self._duration,
+      duration: duration,
       timing(timeFraction) {
         return timeFraction;
       },
       draw(progress) {
-        list.style.marginLeft = `${ ( progress * (multiplier * position) ) + (previous * position) }vw`;
+        list.style.marginLeft = `${ ( progress * (multiplier * slideWidth) ) + (previous * slideWidth) }vw`;
       }
     });
   }
 
   function moveLeft(multiplier, previous) {
     animate({
-      duration: self._duration,
+      duration: duration,
       timing(timeFraction) {
         return timeFraction;
       },
       draw(progress) {
-        list.style.marginLeft = `${ ( progress * (multiplier * position) ) + (previous * position) }vw`;
+        list.style.marginLeft = `${ ( progress * (multiplier * slideWidth) ) + (previous * slideWidth) }vw`;
       }
     });
   }

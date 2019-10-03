@@ -1,17 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* Polyfill the append() */
-  //= polyfillAppend.js
+  /* Modal */
+  //= showHideModal.js
 
-  /* Polyfill the prepend() */
-  //= polyfillPrepend.js
-
-  /* Polyfill the from() */
+  /* Polyfill the Array.from() */
   //= polyfillFrom.js
 
   /* Slider */
   //= Slider.js
-  const carousel = new Slider(".slider");
-  carousel.duration = 500;
+  const carousel = new Slider(".slider", 500, 2);
 
   /* Bottom box */
   //= showHideBottomBox.js

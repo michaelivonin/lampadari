@@ -1,0 +1,45 @@
+.modal-bg
+  .modal
+    .modal__top
+      h3.modal__head Area riservata
+      a(href="#").modal__close
+    //- /.modal__top
+    .modal__inner
+      .modal__item
+        h5.modal__heading Accedi
+        form(id="sign-in").form
+          .form__inner
+            input(type="email" placeholder="Email" required).form__input
+            input(type="password" placeholder="Password" required).form__input
+            button(type="submit").form__button
+              span.form__button-text Accedi
+            //- /.form__button
+            p.modal__description Password dimenticata
+          //- /.form__inner
+        //- /.form
+      //- /.modal__item
+      .modal__item
+        h5.modal__heading Registrati
+        form(id="registration").form
+          .form__inner
+            input(type="text" placeholder="Nome" required).form__input
+            input(type="text" placeholder="Cognome" required).form__input
+            input(type="email" placeholder="Email" required).form__input
+            input(type="password" placeholder="Password" required).form__input
+            input(type="checkbox" id="checkbox1").form__checkbox
+            label(for="checkbox1").form__label
+              | Acconsento al trattamento dei dati
+            //- /.form__label
+            input(type="checkbox" id="checkbox2").form__checkbox
+            label(for="checkbox2").form__label
+              | Mi iscrivo alla Newsletter
+            //- /.form__label
+            button(type="submit").form__button
+              span.form__button-text Iscriviti
+            //- /.form__button
+          //- /.form__inner
+        //- /.form
+      //- /.modal__item
+    //- /.modal__inner
+  //- /.modal
+//- /.modal-bg

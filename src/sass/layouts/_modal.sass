@@ -1,0 +1,141 @@
+.modal-bg
+  background-color: rgba(255, 255, 255, .6)
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  flex-flow: row nowrap
+  justify-content: center
+  align-items: center
+  display: none
+  &:hover
+    cursor: pointer
+  &_open
+    display: flex
+
+.modal
+  background-color: $black-header
+  padding: 13px 18px
+  max-width: calc(596px - 36px)
+  flex: 0 1 100%
+  cursor: default
+
+  &__top
+    display: flex
+    flex-flow: row nowrap
+    justify-content: center
+    align-items: baseline
+    position: relative
+
+  &__head
+    @include heading-default
+    color: #ffffff
+    font-size: 24px
+    text-transform: uppercase
+
+  &__close
+    position: absolute
+    right: 0
+    top: 0
+    width: 29px
+    height: 29px
+    &:hover
+      opacity: .8
+    &:before, &:after
+      position: absolute
+      left: 14px
+      content: " "
+      height: 29px
+      width: 2px
+      background-color: $white
+    &:before
+      transform: rotate(45deg)
+    &:after
+      transform: rotate(-45deg)
+
+  &__inner
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-around
+
+  &__item
+    max-width: 184px
+    margin-top: 24px
+
+  &__heading
+    @include heading-default
+    color: #ffffff
+    font-size: 18px
+    text-transform: uppercase
+    margin-bottom: 16px
+
+  &__description
+    @include text-default
+    color: $checkbox-grey
+    font-size: 10px
+
+.form
+
+  &__inner
+    display: flex
+    flex-flow: column nowrap
+
+  &__input
+    height: 32px
+    padding: 6px 6px
+    background-color: $white
+    margin-bottom: 10px !important
+    border: none
+    outline: none
+    box-sizing: border-box
+    &::placeholder
+      @include text-default
+      color: $input-grey
+      font-size: 14px
+      font-weight: 300
+    &:focus
+      border: 3px inset $link-hover
+
+  &__label
+    @include text-default
+    color: $checkbox-grey
+    font-size: 10px
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    margin-bottom: 10px
+    cursor: pointer
+    &:before
+      content: " "
+      color: $black
+      display: flex
+      justify-content: center
+      align-items: center
+      margin: 0 8px 0 1px
+      width: 8px
+      height: 8px
+      background: $white
+
+  &__checkbox
+    display: none
+    &:checked + .form__label:before
+      content: "x"
+
+  &__button
+    height: 32px
+    background-color: $black
+    border: none
+    margin-bottom: 10px
+    &:hover
+      cursor: pointer
+      background-color: $input-grey
+    &:active .form__button-text, &:focus .form__button-text
+      position: relative
+      top: 0
+      left: 0
+
+  &__button-text
+    @include text-default
+    font-size: 18px
+    text-transform: uppercase

@@ -66,11 +66,11 @@ function Slider(element, duration, DisplayedSlide) {
   dots.addEventListener("click", (event) => {
     const target = event.target;
 
-    if (target.tagName !== "LI") return;
+    if (target.tagName !== "LI") return false;
 
-    if (target === selectedDot) return;
+    if (target === selectedDot) return false;
 
-    if (isDisabled) return;
+    if (isDisabled) return false;
 
     isDisabled = true;
 

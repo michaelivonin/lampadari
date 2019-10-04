@@ -1,12 +1,12 @@
 .header
   background-color: $black-header
-  padding: 23px 20px
+  padding: 24px 40px
   position: relative
 
   &__top
     position: absolute
     top: 5px
-    right: 20px
+    right: 40px
 
   &__logo
     display: block
@@ -18,11 +18,15 @@
   @include text-default
   font-size: 14px
   text-transform: uppercase
-  &:hover
-    opacity: .8
+  &:hover, &:hover .trigger__icon-padlock:before
+    color: $link-hover
+  &:active
+    opacity: .9
+  &:focus
+    text-decoration: underline
 
   &__text
-    margin-right: 10px
+    margin-right: 9px
 
   &__icon-padlock
     position: relative
@@ -35,8 +39,8 @@
   display: inline-flex
   flex-flow: row wrap
   position: absolute
-  bottom: 23px
-  right: 20px
+  bottom: 22px
+  right: 40px
 
   &__item
     position: relative
@@ -44,7 +48,7 @@
     font-size: 18px
     text-transform: uppercase
     &:not(:last-child)
-      margin-right: 27px
+      margin-right: 25px
     &:hover .nav__sub-menu
       opacity: 1
       visibility: visible
@@ -54,13 +58,17 @@
     color: $white
     &:hover
       color: $link-hover
+    &:active
+      opacity: .8
+    &:focus
+      text-decoration: underline
 
   &__sub-menu
     opacity: 0
     visibility: hidden
     position: absolute
     list-style: none
-    padding: 31px 8px 8px
+    padding: 30px 8px 8px
     margin: 0 0 0 -16px
     z-index: 3
     background-color: $black-header
@@ -70,7 +78,7 @@
     @include text-default
     font-size: 16px
     text-transform: uppercase
-    padding: 8px
+    padding: 5px 8px
     &:not(:last-child)
       border-bottom: 1px solid $white
 
@@ -78,3 +86,7 @@
     color: $white
     &:hover
       color: $link-hover
+    &:active
+      opacity: .8
+    &:focus
+      text-decoration: underline

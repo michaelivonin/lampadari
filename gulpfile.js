@@ -8,7 +8,6 @@ const gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   imagemin = require('gulp-imagemin'),
   pngquant = require('imagemin-pngquant'),
-  spritesmith = require("gulp.spritesmith"),
   plumber = require('gulp-plumber'),
   rigger = require("gulp-rigger"),
   notify = require("gulp-notify"),
@@ -20,23 +19,18 @@ const path = {
     html: 'build/',
     css: 'build/css/',
     img: 'build/images/',
-    fonts: 'build/fonts/',
     js: 'build/js/'
   },
   src: {
     pug: 'src/*.pug',
     style: 'src/sass/main.sass',
     img: 'src/images/**/*.*',
-    pngSprite: 'src/sprite/png/',
-    fonts: 'src/fonts/**/*.*',
     js: 'src/js/index.js'
   },
   watch: {
     pug: 'src/**/*.pug',
     style: 'src/sass/**/*.*',
     img: 'src/images/**/*.*',
-    pngSprite: 'src/sprite/png/*.png',
-    fonts: 'src/fonts/**/*.*',
     js: 'src/js/*.js'
   }
 };
@@ -94,33 +88,6 @@ gulp.task('image:build', (done) => {
   done();
 });
 
-gulp.task('fonts:build', (done) => {
-  gulp.src(path.src.fonts)
-    .pipe(gulp.dest(path.build.fonts));
-  done();
-});
-
-// PNG Sprites
-gulp.task('png-sprite', (done) => {
-  const spriteData =
-    gulp.src(path.src.pngSprite + '*.png')
-      .pipe(spritesmith({
-        retinaSrcFilter: path.src.pngSprite + '*@2x.png',
-        imgName: 'sprite.png',
-        retinaImgName: 'sprite@2x.png',
-        cssName: '_png-sprite.sass',
-        cssTemplate: 'sass.template.mustache',
-        cssVarMap: (sprite) => {
-          sprite.name = sprite.name;
-          sprite.image2x = 'sprite@2x.png';
-        }
-      }));
-
-  spriteData.img.pipe(gulp.dest('src/images/'));
-  spriteData.css.pipe(gulp.dest('src/sass/'));
-  done();
-});
-
 gulp.task('js:build', (done) => {
   gulp.src(path.src.js)
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
@@ -136,9 +103,7 @@ gulp.task('js:build', (done) => {
 gulp.task('build', gulp.series(
   'html:build',
   'style:build',
-  'fonts:build',
   'image:build',
-  'png-sprite',
   'js:build'
 ));
 
@@ -146,8 +111,6 @@ gulp.task('watch', (done) => {
   gulp.watch(path.watch.pug, gulp.series('html:build'));
   gulp.watch(path.watch.style, gulp.series('style:build'));
   gulp.watch(path.watch.img, gulp.series('image:build'));
-  gulp.watch(path.watch.pngSprite, gulp.series('png-sprite'));
-  gulp.watch(path.watch.fonts, gulp.series('fonts:build'));
   gulp.watch(path.watch.js, gulp.series('js:build'));
   done();
 });

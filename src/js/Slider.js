@@ -88,3 +88,5 @@ function Slider(element, duration, DisplayedSlide) {
     highlight(target);
   });
 }
+
+export default Slider;

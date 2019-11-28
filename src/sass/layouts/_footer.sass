@@ -2,47 +2,46 @@
   background-color: $black-header
 
   &__content
-    padding: 36px 145px 12px
     display: flex
     flex-flow: row wrap
     justify-content: space-around
+    padding: 36px 145px 12px
 
   &__item
-    max-width: 193px
-    flex: 0 1 100%
-    display: flex
-    flex-direction: column
     @include text-default
+    display: flex
+    flex: 0 1 100%
+    flex-direction: column
     font-size: 12px
     font-weight: 300
     line-height: 17px
+    max-width: 193px
 
   &__heading
     @include heading-default
     color: $footer-white
     font-size: 14px
-    text-transform: uppercase
     margin-bottom: 19px
+    text-transform: uppercase
 
   &__description
     margin: 0 0 20px
 
-
   &__bottom
-    padding: 9px 40px
+    align-items: baseline
     display: flex
     flex-flow: row wrap
     justify-content: space-between
-    align-items: baseline
+    padding: 9px 40px
 
 .info
-  list-style: none
-  padding: 0
-  margin: 0 0 10px
   display: flex
+  flex: 0 1 703px
   flex-flow: row wrap
   justify-content: space-between
-  flex: 0 1 703px
+  list-style: none
+  margin: 0 0 10px
+  padding: 0
 
   &__item
     @include text-default
@@ -50,69 +49,81 @@
 
   &__link
     color: $white
+
     &:hover
       color: $link-hover
+
     &:active
       opacity: .8
+
     &:focus
       text-decoration: underline
 
 .socials
-  list-style: none
-  padding: 0
-  margin: 0
   display: flex
   flex-flow: row nowrap
   justify-content: space-between
+  list-style: none
+  margin: 0
+  padding: 0
 
   &__item
     @include text-default
     font-size: 12px
+
     &:not(:last-child)
       margin-right: 13px
 
   &__link
-    display: inline-block
     color: $white
+    display: inline-block
     font-size: 20px
+
     &:hover
       color: $link-hover
+
     &:active
       opacity: .8
+
     &:focus
       color: $input-grey
 
 .languages
-  list-style: none
-  padding: 0
-  margin: 0
   display: flex
   flex-flow: row nowrap
   justify-content: space-between
+  list-style: none
+  margin: 0
+  padding: 0
 
   &__item
     @include text-default
-    font-size: 14px
-    text-transform: uppercase
+    align-items: center
     display: flex
     flex-flow: row nowrap
-    align-items: center
+    font-size: 14px
+    text-transform: uppercase
+
     &:not(:last-child)
+
       &:after
-        content: "|"
-        text-indent: -999999px
+        background: $white
+        content: '|'
         display: block
         float: right
-        width: 1px
         height: 12px
-        background: $white
         margin: 0 9px
+        text-indent: -999999px
+        width: 1px
 
   &__link
     color: $white
+
     &:hover
       color: $link-hover
+
     &:active
       opacity: .8
+
     &:focus
       text-decoration: underline

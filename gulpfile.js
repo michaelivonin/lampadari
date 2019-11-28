@@ -9,10 +9,13 @@ const gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   pngquant = require('imagemin-pngquant'),
   plumber = require('gulp-plumber'),
-  rigger = require("gulp-rigger"),
+  webpack = require("webpack-stream"),
   notify = require("gulp-notify"),
-  babel = require("gulp-babel"),
-  browserSync = require('browser-sync').create();
+  browserSync = require('browser-sync').create(),
+  gulpIf = require('gulp-if');
+
+let isDev = false;
+let isProd = !isDev;
 
 const path = {
   build: {
@@ -35,6 +38,23 @@ const path = {
   }
 };
 
+const webpackConfig = {
+  output: {
+    filename: 'index.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: '/node_modules/'
+      }
+    ]
+  },
+  mode: isDev ? 'development' : 'production',
+  devtool: isDev ? 'eval-source-map' : 'none'
+};
+
 gulp.task('browser-sync', (done) => {
   browserSync.init({
     server: {
@@ -46,9 +66,7 @@ gulp.task('browser-sync', (done) => {
 
 gulp.task('html:build', (done) => {
   gulp.src(path.src.pug)
-    .pipe(pug({
-      pretty: true
-    }))
+    .pipe(pug(gulpIf(isDev, {pretty: true})))
     .pipe(gulp.dest(path.build.html))
     .pipe(browserSync.stream());
   done();
@@ -57,11 +75,14 @@ gulp.task('html:build', (done) => {
 gulp.task('style:build', (done) => {
   gulp.src(path.src.style)
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-    .pipe(sourcemaps.init())
-    .pipe(sass({errLogToConsole: true}))
+    .pipe(gulpIf(isDev, sourcemaps.init()))
+    .pipe(sass({
+      includePaths: ['./node_modules'],
+      errLogToConsole: true
+    }))
     .pipe(prefixer())
-    .pipe(cssmin())
-    .pipe(sourcemaps.write())
+    .pipe(gulpIf(isProd, cssmin()))
+    .pipe(gulpIf(isDev, sourcemaps.write()))
     .pipe(gulp.dest(path.build.css))
     .pipe(browserSync.stream());
   done();
@@ -91,10 +112,7 @@ gulp.task('image:build', (done) => {
 gulp.task('js:build', (done) => {
   gulp.src(path.src.js)
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-    .pipe(rigger())
-    .pipe(sourcemaps.init())
-    .pipe(babel())
-    .pipe(sourcemaps.write())
+    .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(path.build.js))
     .pipe(browserSync.stream());
   done();

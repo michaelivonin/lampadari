@@ -1,14 +1,11 @@
+import showHideModal from "./showHideModal";
+import Slider from "./Slider";
+import showHideBottomBox from "./showHideBottomBox";
+
 document.addEventListener("DOMContentLoaded", () => {
-  /* Modal */
-  //= showHideModal.js
+  showHideModal();
 
-  /* Polyfill the Array.from() */
-  //= polyfillFrom.js
-
-  /* Slider */
-  //= Slider.js
   const carousel = new Slider(".slider", 500, 2);
 
-  /* Bottom box */
-  //= showHideBottomBox.js
+  showHideBottomBox();
 });

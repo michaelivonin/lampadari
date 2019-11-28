@@ -1,17 +1,19 @@
 // Base
-@import "../../node_modules/normalize.css/normalize"
+@import 'normalize.css/normalize'
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap')
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:700,700i&display=swap')
 
 // Colors
-$black: #000000
+$black: #000
 $heading-black: #020202
 $black-header: #353436
 $input-grey: #8c8c8c
 $checkbox-grey: #b5b4b4
-$white: #ffffff
+$darkgrey: #a9a9a9
+$dimgrey: #696969
+$white: #fff
 $footer-white: #fefefe
 $link-hover: #e2d1a6
 
@@ -20,10 +22,11 @@ $link-hover: #e2d1a6
 @import 'helpers/mixins/heading-default'
 
 // Layouts
-@import "layouts/header"
-@import "layouts/slider"
-@import "layouts/footer"
-@import "layouts/modal"
+@import 'layouts/header'
+@import 'layouts/slider'
+@import 'layouts/footer'
+@import 'layouts/modal'
+
 
 .body_fixed
   overflow: hidden
@@ -33,6 +36,6 @@ a
   text-decoration: none
 
 .greeting
-  height: 100vh
   display: flex
   flex-direction: column
+  height: 100vh

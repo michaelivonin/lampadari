@@ -1,4 +1,4 @@
-(function showHideModal() {
+function showHideModal() {
   const body = document.body;
   const trigger = body.querySelector(".trigger");
   const modal = body.querySelector(".modal-bg");
@@ -22,4 +22,6 @@
     modal.classList.toggle("modal-bg_open");
     body.classList.toggle("body_fixed");
   });
-})();
+}
+
+export default showHideModal;

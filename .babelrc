@@ -9,7 +9,10 @@
           "chrome": "77",
           "opera": "63",
           "ie": "11"
-        }
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "debug": true
       }
     ]
   ]

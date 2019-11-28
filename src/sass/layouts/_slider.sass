@@ -7,88 +7,97 @@
     position: relative
 
   &__list
+    font-size: 0
+    height: 100%
+    list-style: none
     margin: 0
     padding: 0
-    list-style: none
     width: 9999px
-    height: 100%
-    font-size: 0
 
   &__item
-    font-size: initial
-    width: calc(100vw - 16px)
-    height: 100%
     display: inline-block
+    font-size: initial
+    height: 100%
     position: relative
+    width: calc(100vw - 16px)
+
     &:not(:last-child)
       margin-right: 16px
+
     &_previous
-      background-color: darkgrey
+      background-color: $darkgrey
+
     &_main
       background: url(../images/slide.jpg) no-repeat
-      background-size: cover
       background-position: center
+      background-size: cover
+
     &_next
-      background-color: dimgrey
+      background-color: $dimgrey
 
   &__box
+    @include text-default
+    background-color: $white
+    color: $black
+    font-size: 18px
+    max-width: calc(530px - (2 * 27px))
+    opacity: .85
+    padding: 15px 27px
     position: absolute
     right: 0
     top: 50%
     transform: translateY(-50%)
-    background-color: $white
-    opacity: 0.85
-    max-width: calc(530px - (2 * 27px))
-    padding: 15px 27px
-    @include text-default
-    color: $black
-    font-size: 18px
 
   &__heading
     @include heading-default
-    margin-bottom: 34px
     color: $heading-black
     font-size: 30px
     font-style: italic
+    margin-bottom: 34px
     text-transform: uppercase
 
   &__description
     margin: 0
 
   &__dots
-    margin: 0
-    padding: 0
-    list-style: none
-    position: absolute
     bottom: 39px
-    left: 50%
-    transform: translateX(-50%)
     display: flex
     flex-flow: row nowrap
+    left: 50%
+    list-style: none
+    margin: 0
+    padding: 0
+    position: absolute
+    transform: translateX(-50%)
 
   &__dot
-    width: 10px
-    height: 10px
-    border-radius: 50%
-    border: 2px solid $black
     background-color: $white
+    border: 2px solid $black
+    border-radius: 50%
+    height: 10px
+    width: 10px
+
     &:not(:last-child)
       margin-right: 9px
+
     &:hover
-      cursor: pointer
       border-color: $link-hover
+      cursor: pointer
+
     &:active
       border: 2px solid $input-grey
+
     &_active
       background-color: $link-hover
 
 .bottom-box
-  width: calc(100% - 80px)
+  bottom: 28px
   margin: 0 40px
   position: absolute
-  bottom: 28px
   transform: translateY(100%)
-  transition: all .5s ease-out
+  transition: transform .5s ease-out, bottom .5s
+  width: calc(100% - 80px)
+
   &_visible
     bottom: 0
     transform: translateY(0%)
@@ -99,27 +108,33 @@
     justify-content: center
 
   &__button
-    width: 88px
-    height: 29px
     background-color: $white
+    border: 0
+    height: 29px
     text-align: center
-    border: none
+    width: 88px
+
     &:hover
-      cursor: pointer
       background-color: $link-hover
+      cursor: pointer
+
     &:active
       border: 1px solid $input-grey
+
     &:active .bottom-box__icon-arrow, &:focus .bottom-box__icon-arrow
+      left: 0
       position: relative
       top: 0
-      left: 0
+
     &:focus
       outline: none
 
   &__icon-arrow
-    transition: all .5s ease-out
+    transition: transform .5s ease-out
+
     &:before
       font-size: 28px
+
     &_down
       transform: scaleY(-1)
 
@@ -128,44 +143,52 @@
     flex-flow: row wrap
 
   &__item
-    padding: 12px 20px 45px 15px
-    background-color: $link-hover
-    flex: 1
-    display: flex
-    flex-direction: column
-    position: relative
     @include text-default
-    font-size: 16px
+    background-color: $link-hover
     color: $black
+    display: flex
+    flex: 1
+    flex-direction: column
+    font-size: 16px
+    padding: 12px 20px 45px 15px
+    position: relative
+
     &_bg-white
       background-color: $white
+
     &_bg-black
       background-color: $black
 
   &__heading
     @include heading-default
+    flex: 1 0 auto
     font-size: 28px
     margin-bottom: 14px
-    flex: 1 0 auto
+
     &_white
       color: $white
 
   &__description
     margin: 0
+
     &_white
       color: $white
 
   &__link
+    bottom: 10px
     color: $white
     font-size: 18px
     position: absolute
-    bottom: 10px
     right: 20px
+
     &:hover
       text-decoration: underline
+
     &:active
       text-decoration: none
+
     &:focus
       color: $input-grey
+
     &_black
       color: $black

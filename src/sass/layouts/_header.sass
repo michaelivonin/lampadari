@@ -5,23 +5,26 @@
 
   &__top
     position: absolute
-    top: 5px
     right: 40px
+    top: 5px
 
   &__logo
-    display: block
-    width: 283px
-    height: 83px
     background: url(../images/logo.png) no-repeat
+    display: block
+    height: 83px
+    width: 283px
 
 .trigger
   @include text-default
   font-size: 14px
   text-transform: uppercase
+
   &:hover, &:hover .trigger__icon-padlock:before
     color: $link-hover
+
   &:active
     opacity: .9
+
   &:focus
     text-decoration: underline
 
@@ -31,62 +34,72 @@
   &__icon-padlock
     position: relative
     top: -1px
+
     &:before
       color: $white
       font-size: 12px
 
 .nav
+  bottom: 22px
   display: inline-flex
   flex-flow: row wrap
   position: absolute
-  bottom: 22px
   right: 40px
 
   &__item
-    position: relative
     @include text-default
     font-size: 18px
+    position: relative
     text-transform: uppercase
+
     &:not(:last-child)
       margin-right: 25px
+
     &:hover .nav__sub-menu
       opacity: 1
-      visibility: visible
       transition-delay: 0s
+      visibility: visible
 
   &__link
     color: $white
+
     &:hover
       color: $link-hover
+
     &:active
       opacity: .8
+
     &:focus
       text-decoration: underline
 
   &__sub-menu
-    opacity: 0
-    visibility: hidden
-    position: absolute
-    list-style: none
-    padding: 30px 8px 8px
-    margin: 0 0 0 -16px
-    z-index: 3
     background-color: $black-header
-    transition: opacity 0.2s, visibility 0s linear 0.2s
+    list-style: none
+    margin: 0 0 0 -16px
+    opacity: 0
+    padding: 30px 8px 8px
+    position: absolute
+    transition: opacity .2s, visibility 0s linear .2s
+    visibility: hidden
+    z-index: 3
 
   &__sub-item
     @include text-default
     font-size: 16px
-    text-transform: uppercase
     padding: 5px 8px
+    text-transform: uppercase
+
     &:not(:last-child)
       border-bottom: 1px solid $white
 
   &__sub-link
     color: $white
+
     &:hover
       color: $link-hover
+
     &:active
       opacity: .8
+
     &:focus
       text-decoration: underline
